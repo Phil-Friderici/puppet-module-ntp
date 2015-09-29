@@ -127,7 +127,7 @@ class ntp (
 
   case $::osfamily {
     'Debian': {
-      $default_package_name        = [ 'ntp' ]
+      $default_package_name        = [ 'ntp', ]
       $default_package_noop        = false
       $default_package_source      = undef
       $default_package_adminfile   = undef
@@ -141,7 +141,7 @@ class ntp (
       $default_enable_tinker       = true
     }
     'RedHat': {
-      $default_package_name        = [ 'ntp' ]
+      $default_package_name        = [ 'ntp', ]
       $default_package_noop        = false
       $default_package_source      = undef
       $default_package_adminfile   = undef
@@ -173,10 +173,10 @@ class ntp (
 
       case $::lsbmajdistrelease {
         '9','10': {
-          $default_package_name     = [ 'xntp' ]
+          $default_package_name     = [ 'xntp', ]
         }
         '11','12': {
-          $default_package_name     = [ 'ntp' ]
+          $default_package_name     = [ 'ntp', ]
         }
         default: {
           fail("The ntp module is supported by release 9, 10, 11 and 12 of the Suse OS Family. Your release is ${::lsbmajdistrelease}")
@@ -191,7 +191,7 @@ class ntp (
           $default_restrict_localhost = [ '127.0.0.1', ]
         }
         '5.11': {
-          $default_package_name       = [ 'network/ntp' ]
+          $default_package_name       = [ 'network/ntp', ]
           $default_restrict_options   = [ 'default kod notrap nomodify nopeer noquery', ]
           $default_restrict_localhost = [ '127.0.0.1', '::1', ]
         }
